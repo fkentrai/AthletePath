@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student-Athlete Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2em;
+      color: #1e3a8a;
+    }
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .tab {
+      padding: 10px;
+      background-color: #e0e7ff;
+      margin-right: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .tab:hover {
+      background-color: #cbd5e1;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 1.2em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin-right: 10px;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e5e7eb;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar-inner {
+      height: 6px;
+      background-color: #1e3a8a;
+      border-radius: 5px;
+    }
+    .mood-check {
+      display: flex;
+      justify-content: space-around;
+    }
+    .mood-check button {
+      font-size: 2rem;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+    }
+    .mood-check button:hover {
+      background-color: #e0f7fa;
+    }
+    .mood-check .active {
+      border-color: #1e3a8a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Student-Athlete Dashboard</h1>
+
+  <div class="tabs">
+    <div class="tab" onclick="showTab('tasks')">Tasks</div>
+    <div class="tab" onclick="showTab('schedule')">Schedule</div>
+    <div class="tab" onclick="showTab('academics')">Academics</div>
+    <div class="tab" onclick="showTab('career')">Career</div>
+  </div>
+
+  <div id="tasks" class="tab-content active">
+    <div class="card">
+      <h3>Eisenhower Matrix</h3>
+      <div class="grid">
+        <div class="card">
+          <h3>Urgent & Important</h3>
+          <ul>
+            <li>Complete essay</li>
+            <li>Team practice</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Not-Urgent & Important</h3>
+          <ul>
+            <li>Study for exam</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Not-Urgent & Not-Important</h3>
+          <ul>
+            <li>Call family</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top: 20px;">
+        <input type="text" placeholder="Add a new task" id="newTask">
+        <button>Add Task</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="schedule" class="tab-content">
+    <div class="card">
+      <h3>Sports Schedule</h3>
+      <p>Your upcoming sports events and practice sessions will be displayed here.</p>
+    </div>
+  </div>
+
+  <div id="academics" class="tab-content">
+    <div class="card">
+      <h3>Academic Progress</h3>
+      <p>Track your academic performance and upcoming assignments here.</p>
+    </div>
+  </div>
+
+  <div id="career" class="tab-content">
+    <div class="card">
+      <h3>Career Guidance</h3>
+      <p>Explore career opportunities and get personalized guidance for your post-graduation plans.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Performance Tracking</h3>
+      <p>Your athletic and academic performance metrics will be displayed here.</p>
+    </div>
+    <div class="card">
+      <h3>Mental Health Check-in</h3>
+      <p>How are you feeling today?</p>
+      <div class="mood-check">
+        <button>😔</button>
+        <button>😐</button>
+        <button>🙂</button>
+        <button>😄</button>
+      </div>
+      <p class="mood-response">Thanks for sharing. Remember, your mental health is important!</p>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tabName) {
+      var tabs = document.getElementsByClassName('tab-content');
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+      }
+      document.getElementById(tabName).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
